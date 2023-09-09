@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/voleep-carclean-web",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -39,12 +39,7 @@ export class BloggerStoriesComponent implements OnInit {
   constructor(
     private injector: Injector,
     private bloggerService: BloggerService
-  ) {
-    effect(() => {
-      const progress = this.currentProgress();
-      console.log(`post: ${this.currentPostIndex()} progess: ${progress}`);
-    });
-  }
+  ) {}
 
   async ngOnInit(): Promise<void> {
     try {

@@ -1,27 +1,29 @@
-<div class="story-line">
-  <ng-container *ngFor="let post of postList(); let index = index">
-    <mat-progress-bar mode="determinate" [value]="getProgressByIndex(index)" />
-  </ng-container>
-</div>
+<main class="main-wrapper" @fadeIn *ngIf="currentPost()">
+  <div class="story-line">
+    <ng-container *ngFor="let post of postList(); let index = index">
+      <mat-progress-bar
+        mode="determinate"
+        [value]="getProgressByIndex(index)"
+      />
+    </ng-container>
+  </div>
 
-<img
-  class="story-image"
-  @fadeIn
-  *ngIf="currentPost()?.imageUrl"
-  [ngSrc]="currentPost()?.imageUrl!"
-  width="100%"
-  height="100%"
-/>
+  <img
+    class="story-image"
+    [src]="currentPost()?.imageUrl!"
+    width="100%"
+    height="100%"
+  />
 
-<div class="action-area">
-  <div (click)="handleGoPreviousPost()"></div>
+  <div class="action-area">
+    <div (click)="handleGoPreviousPost()"></div>
+    <div (click)="handleGoNextPost()"></div>
+  </div>
 
-  <div (click)="handleGoNextPost()"></div>
-</div>
-
-<main class="main-section">
-  <a [href]="currentPost()?.url" target="_blank"
-    >blog.carclean.voleep.com<mat-icon>arrow_outward</mat-icon></a
-  >
-  <h1>{{ currentPost()?.title }}</h1>
+  <section class="main-section">
+    <a [href]="currentPost()?.url" target="_blank"
+      >blog.carclean.voleep.com<mat-icon>arrow_outward</mat-icon></a
+    >
+    <h1>{{ currentPost()?.title }}</h1>
+  </section>
 </main>

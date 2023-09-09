@@ -1,0 +1,25 @@
+<div class="story-line">
+  <ng-container *ngFor="let post of postList(); let index = index">
+    <mat-progress-bar mode="determinate" [value]="getProgressByIndex(index)" />
+  </ng-container>
+</div>
+
+<img
+  class="story-image"
+  [ngSrc]="currentPost()?.imageUrl!"
+  width="100%"
+  height="100%"
+/>
+
+<div class="action-area">
+  <div (click)="handleGoPreviousPost()"></div>
+
+  <div (click)="handleGoNextPost()"></div>
+</div>
+
+<main class="main-section">
+  <a [href]="currentPost()?.url" target="_blank"
+    >blog.carclean.voleep.com<mat-icon>arrow_outward</mat-icon></a
+  >
+  <h1>{{ currentPost()?.title }}</h1>
+</main>

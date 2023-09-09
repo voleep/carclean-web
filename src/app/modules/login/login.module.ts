@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginService } from './login.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BloggerStoriesComponent } from '@carclean/shared/components/blogger-stories/blogger-stories.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    BloggerStoriesComponent,
   ],
   declarations: [LoginComponent, LoginFormComponent],
   providers: [LoginService],

@@ -1,9 +1,60 @@
+@import "../../../../shared/styles/abstracts/variables";
+
 :host {
   display: flex;
   flex-direction: column;
   background-color: white;
-  align-items: center;
-  justify-content: center;
+
+  .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #ffffff;
+  }
+
+  main {
+    display: flex;
+    height: 100%;
+    max-width: 350px;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carclean-logo {
+    height: 65px;
+    width: 65px;
+    border-radius: 12px;
+  }
+
+  .carclean-title {
+    display: flex;
+    margin: 16px 0 25px 0;
+    font-weight: 500;
+    font-size: 25px;
+
+    h2 {
+      font-size: inherit;
+      font-weight: inherit;
+      margin: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.85),
+        rgb(116, 116, 116)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    span {
+      color: $carclean-primary;
+    }
+  }
+
+  .carclean-subtitle {
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.3;
+    color: #000000cc;
+  }
 
   form {
     display: contents;
@@ -12,10 +63,9 @@
   mat-form-field,
   .login-button {
     width: 100%;
-    max-width: 350px;
   }
 
-  .mat-mdc-progress-spinner {
-    --mdc-circular-progress-active-indicator-color: #ffffff;
+  .login-button {
+    margin-top: 12px;
   }
 }

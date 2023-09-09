@@ -1,4 +1,6 @@
 :host {
+  background-color: aliceblue;
+
   .mat-mdc-progress-bar {
     --mdc-linear-progress-active-indicator-color: #0057ce;
     --mdc-linear-progress-track-color: rgba(255, 255, 255, 0.25);
@@ -26,6 +28,8 @@
 
   .story-image {
     object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 
   .action-area {

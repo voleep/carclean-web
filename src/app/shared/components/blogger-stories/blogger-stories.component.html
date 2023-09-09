@@ -6,6 +6,7 @@
 
 <img
   class="story-image"
+  @fadeIn
   *ngIf="currentPost()?.imageUrl"
   [ngSrc]="currentPost()?.imageUrl!"
   width="100%"

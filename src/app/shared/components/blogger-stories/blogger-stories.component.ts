@@ -13,6 +13,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   standalone: true,
@@ -27,6 +28,14 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
   ],
   providers: [BloggerService],
+  animations: [
+    trigger('fadeIn', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(200, style({ opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class BloggerStoriesComponent implements OnInit {
   postList = signal<BloggerPost[]>([]);

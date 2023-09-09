@@ -14,7 +14,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - run: npm install -g angular-cli
+      - run: npm install
+      - run: npm i -g  @angular/cli
       - run: npm run build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

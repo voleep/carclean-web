@@ -1,0 +1,111 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Generated with http://mcg.mbitson.com/
+$carclean-light-green: (
+  50: #e0f2f1,
+  100: #b2dfdb,
+  200: #80cbc4,
+  300: #4db6ac,
+  400: #26a69a,
+  500: #00bfa5,
+  600: #00897b,
+  700: #00796b,
+  800: #00695c,
+  900: #004d40,
+  A100: #a7ffeb,
+  A200: #64ffda,
+  A400: #1de9b6,
+  A700: #00bfa5,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87),
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+  ),
+);
+
+// Generated with http://mcg.mbitson.com/
+$carclean-light-blue: (
+  50: #e0ebf9,
+  100: #b3cdf0,
+  200: #80abe7,
+  300: #4d89dd,
+  400: #2670d5,
+  500: #0057ce,
+  600: #004fc9,
+  700: #0046c2,
+  800: #003cbc,
+  900: #002cb0,
+  A100: #dae0ff,
+  A200: #a7b6ff,
+  A400: #748cff,
+  A700: #5a77ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff,
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$voleep-carclean-web-primary: mat.define-palette($carclean-light-blue);
+$voleep-carclean-web-accent: mat.define-palette($carclean-light-green);
+
+// The warn palette is optional (defaults to red).
+$voleep-carclean-web-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$voleep-carclean-web-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $voleep-carclean-web-primary,
+      accent: $voleep-carclean-web-accent,
+      warn: $voleep-carclean-web-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($voleep-carclean-web-theme);
+
+$carclean-app-inverse-theme: mat.define-light-theme(
+  mat.define-palette($carclean-light-green),
+  mat.define-palette($carclean-light-blue)
+);
+@include mat.legacy-form-field-theme($carclean-app-inverse-theme);
+@include mat.stepper-theme($carclean-app-inverse-theme);
+@include mat.datepicker-theme($carclean-app-inverse-theme);

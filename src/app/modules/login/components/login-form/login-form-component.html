@@ -1,0 +1,27 @@
+<h2>Bem vindo de volta!</h2>
+
+<form [formGroup]="loginForm">
+  <mat-form-field>
+    <mat-label>E-mail</mat-label>
+    <input [formControl]="loginForm.controls.email" matInput type="email" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input
+      [formControl]="loginForm.controls.password"
+      matInput
+      type="password"
+    />
+  </mat-form-field>
+</form>
+
+<button
+  class="login-button"
+  mat-flat-button
+  color="primary"
+  [ngStyle]="{pointerEvents: isLoading() ? 'none' : 'initial'}"
+  (click)="handleLoginClicked()"
+>
+  {{!isLoading() ? 'Entrar' : ''}}
+  <mat-spinner *ngIf="isLoading()" diameter="18"></mat-spinner>
+</button>

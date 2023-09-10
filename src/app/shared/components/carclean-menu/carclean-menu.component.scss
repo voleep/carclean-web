@@ -1,0 +1,35 @@
+@use "@angular/material" as mat;
+@import "../../styles/themes/carclean-theme";
+
+$menu-color: mat.get-color-from-palette($voleep-carclean-web-primary, A50);
+
+:host {
+  position: relative;
+  height: 100%;
+  width: 88px;
+
+  .left-nav-rail {
+    position: absolute;
+    background-color: $menu-color;
+    inset: 0;
+    padding-top: 18px;
+    z-index: 5;
+  }
+
+  .nav-drawer-section {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%),
+      0px 2px 6px 2px rgb(0 0 0 / 15%);
+    background-color: $menu-color;
+    border-left: 1px solid #d9d9d9;
+    z-index: 1;
+  }
+}

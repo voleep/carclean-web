@@ -6,6 +6,15 @@ const routes: Route[] = [
   {
     path: '',
     component: AppComponent,
+    children: [
+      {
+        path: 'cadastro',
+        loadChildren: () =>
+          import('@carclean/modules/register/register.module').then(
+            (m) => m.RegisterModule
+          ),
+      },
+    ],
   },
 ];
 

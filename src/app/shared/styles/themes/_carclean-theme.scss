@@ -54,6 +54,7 @@ $carclean-light-blue: (
   700: #0046c2,
   800: #003cbc,
   900: #002cb0,
+  A50: #f1f4ff,
   A100: #dae0ff,
   A200: #a7b6ff,
   A400: #748cff,
@@ -106,6 +107,6 @@ $carclean-app-inverse-theme: mat.define-light-theme(
   mat.define-palette($carclean-light-green),
   mat.define-palette($carclean-light-blue)
 );
-@include mat.legacy-form-field-theme($carclean-app-inverse-theme);
+@include mat.form-field-theme($carclean-app-inverse-theme);
 @include mat.stepper-theme($carclean-app-inverse-theme);
 @include mat.datepicker-theme($carclean-app-inverse-theme);

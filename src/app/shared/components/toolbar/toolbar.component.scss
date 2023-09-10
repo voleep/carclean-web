@@ -1,0 +1,14 @@
+:host {
+  .mat-mdc-icon-button {
+    --mdc-icon-button-state-layer-size: 40px;
+    padding: 8px;
+  }
+
+  .logout-button {
+    margin-left: auto;
+  }
+
+  mat-toolbar {
+    height: 48px;
+  }
+}

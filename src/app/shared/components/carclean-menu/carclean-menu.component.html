@@ -1,0 +1,36 @@
+<nav class="left-nav-rail">
+  <car-nav-rail
+    mat-button
+    (click)="handleNavigate(homeMenu)"
+    (mouseover)="handleMouseOverRail(homeMenu)"
+    (mouseleave)="handleMouseLeaveRail()"
+    [routerLink]="homeMenu.path"
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <img src="assets/icons/launcher_icon.png" />
+    <span>{{ homeMenu.title }}</span>
+  </car-nav-rail>
+  <ng-container *ngFor="let menu of menuSchema">
+    <car-nav-rail
+      mat-button
+      (click)="handleNavigate(menu)"
+      (mouseover)="handleMouseOverRail(menu)"
+      (mouseleave)="handleMouseLeaveRail()"
+      [routerLink]="menu.path"
+      routerLinkActive="active-link"
+    >
+      <mat-icon *ngIf="menu.icon" class="material-icons-outlined">{{
+        menu.icon
+      }}</mat-icon>
+      <span>{{ menu.title }}</span>
+    </car-nav-rail>
+  </ng-container>
+</nav>
+<nav @slideInOut *ngIf="showNavDrawer()" class="nav-drawer-section">
+  <ng-container *ngFor="let menu of menuNavDrawer()!.childrem">
+    <a mat-button (click)="handleNavigate(menu)">
+      {{ menu.title }}
+    </a>
+  </ng-container>
+</nav>

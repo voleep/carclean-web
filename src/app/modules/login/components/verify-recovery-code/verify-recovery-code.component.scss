@@ -1,0 +1,105 @@
+@import "../../../../shared/styles/abstracts/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+
+  .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #ffffff;
+  }
+
+  main {
+    display: flex;
+    height: 100%;
+    max-width: 350px;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .recovery-code-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+    width: 65px;
+    border: 2px solid #e6e6e6;
+    border-radius: 12px;
+
+    mat-icon {
+      scale: 2;
+    }
+  }
+
+  .recovery-code-title {
+    font-weight: 500;
+    font-size: 25px;
+    margin: 16px 0 25px 0;
+  }
+
+  .recovery-code-subtitle {
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.3;
+    color: #000000cc;
+
+    b {
+      color: $carclean-primary;
+      font-weight: 500;
+    }
+  }
+
+  form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    mat-form-field {
+      flex: 1;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 0px;
+      height: 78px;
+
+      ::ng-deep .mat-mdc-form-field-infix {
+        padding: 8px 0;
+      }
+
+      &:not(:last-child) {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  .continue-button {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .back-to-login {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-top: 80px;
+    color: #8f8f8f;
+
+    mat-icon {
+      margin-right: 4px;
+    }
+  }
+}
+
+/* Hide up-down arrow number input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

@@ -23,4 +23,11 @@ export class LoginService {
       }
     );
   }
+
+  resetPassword(email: string): Observable<RequestResponse<void>> {
+    return this.http.post<RequestResponse<void>>(
+      `${this.endpoint}/recovery-password`,
+      email
+    );
+  }
 }

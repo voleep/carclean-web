@@ -4,6 +4,7 @@ import { OAuthService } from '@carclean/core/oauth/oauth.service';
 import { firstValueFrom } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
 
 @Component({
   selector: 'app-login-form',
@@ -27,6 +28,7 @@ export class LoginFormComponent {
   constructor(
     private loginService: LoginService,
     private oAuthService: OAuthService,
+    private messenger: MessengerService,
     private router: Router
   ) {}
 
@@ -54,7 +56,7 @@ export class LoginFormComponent {
       this.oAuthService.setOAuthData(response.data);
       this.router.navigateByUrl('/app');
     } catch (error) {
-      alert('erro');
+      this.messenger.showMessage(error);
     }
     this.isLoading.set(false);
   }

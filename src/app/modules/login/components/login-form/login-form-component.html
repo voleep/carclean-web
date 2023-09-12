@@ -26,6 +26,9 @@
         type="password"
       />
     </mat-form-field>
+    <a class="forgot-password" routerLink="/entrar/recuperar-senha"
+      >Esqueceu a senha?</a
+    >
   </form>
 
   <button
@@ -35,7 +38,7 @@
     [ngStyle]="{pointerEvents: isLoading() ? 'none' : 'initial'}"
     (click)="handleLoginClicked()"
   >
-    {{!isLoading() ? 'Entrar' : ''}}
+    {{!isLoading() ? 'ENTRAR' : ''}}
     <mat-spinner *ngIf="isLoading()" diameter="18"></mat-spinner>
   </button>
 </main>

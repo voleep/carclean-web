@@ -1,0 +1,39 @@
+<main>
+  <div class="recovery-code-icon">
+    <mat-icon class="material-icons-outlined">drafts</mat-icon>
+  </div>
+
+  <h2 class="recovery-code-title">Código de verificação</h2>
+  <span class="recovery-code-subtitle"
+    >Quase lá! Agora digite o código enviado para <b>{{ email() }}</b></span
+  >
+
+  <form>
+    <ng-container
+      *ngFor="
+        let control of codeFormArray.controls;
+        let index = index;
+        let first = first;
+        let last = last
+      "
+    >
+      <mat-form-field>
+        <input matInput type="number" [formControl]="control" />
+      </mat-form-field>
+    </ng-container>
+  </form>
+
+  <button
+    class="continue-button"
+    mat-flat-button
+    color="primary"
+    [ngStyle]="{ pointerEvents: isLoading() ? 'none' : 'initial' }"
+  >
+    {{ !isLoading() ? "CONTINUAR" : "" }}
+    <mat-spinner *ngIf="isLoading()" diameter="18"></mat-spinner>
+  </button>
+  <a class="back-to-login" routerLink="/entrar">
+    <mat-icon>arrow_back</mat-icon>
+    Voltar para login</a
+  >
+</main>

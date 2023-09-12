@@ -1,2 +1,4 @@
 <app-blogger-stories />
-<app-login-form />
+<main [@routeAnimations]="getRouteAnimationData()">
+  <router-outlet #outlet="outlet" />
+</main>

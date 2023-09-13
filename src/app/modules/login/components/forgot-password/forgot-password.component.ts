@@ -16,8 +16,6 @@ import { Location } from '@angular/common';
 export class ForgotPasswordComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
 
-  focusEmail = signal(false);
-
   isLoading = signal(false);
 
   emailControl = new FormControl('', {
@@ -38,7 +36,6 @@ export class ForgotPasswordComponent implements OnInit {
     if (state.email) {
       this.emailControl.setValue(state.email);
     }
-    setTimeout(() => this.focusEmail.set(true), 300);
   }
 
   async handleRecoveryPassword(): Promise<void> {

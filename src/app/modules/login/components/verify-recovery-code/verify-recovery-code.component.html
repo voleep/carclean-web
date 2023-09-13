@@ -1,6 +1,6 @@
 <main>
   <div class="recovery-code-icon">
-    <mat-icon class="material-icons-outlined">drafts</mat-icon>
+    <mat-icon class="material-icons-outlined">mail</mat-icon>
   </div>
 
   <h2 class="recovery-code-title">Código de verificação</h2>
@@ -18,7 +18,18 @@
       "
     >
       <mat-form-field>
-        <input matInput type="number" [formControl]="control" />
+        <input
+          [id]="'code' + index"
+          [cdkTrapFocus]="first"
+          [cdkTrapFocusAutoCapture]="first"
+          matInput
+          type="number"
+          accept="numbers"
+          autocomplete="off"
+          [formControl]="control"
+          (input)="handleInputChange($event, index, last)"
+          (keydown)="handleKeyDown($event, index, first, last)"
+        />
       </mat-form-field>
     </ng-container>
   </form>
@@ -28,6 +39,7 @@
     mat-flat-button
     color="primary"
     [ngStyle]="{ pointerEvents: isLoading() ? 'none' : 'initial' }"
+    (click)="handleVerifyCode()"
   >
     {{ !isLoading() ? "CONTINUAR" : "" }}
     <mat-spinner *ngIf="isLoading()" diameter="18"></mat-spinner>

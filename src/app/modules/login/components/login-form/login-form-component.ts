@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { LoginService } from '../../login.service';
 import { OAuthService } from '@carclean/core/oauth/oauth.service';
 import { firstValueFrom } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-login-form',
@@ -25,6 +26,8 @@ export class LoginFormComponent {
     }),
   });
 
+  private destroyRef = inject(DestroyRef);
+
   constructor(
     private loginService: LoginService,
     private oAuthService: OAuthService,
@@ -43,10 +46,12 @@ export class LoginFormComponent {
     this.isLoading.set(true);
     try {
       const response = await firstValueFrom(
-        this.loginService.signIn(
-          this.loginForm.controls.email.value,
-          this.loginForm.controls.password.value
-        )
+        this.loginService
+          .signIn(
+            this.loginForm.controls.email.value,
+            this.loginForm.controls.password.value
+          )
+          .pipe(takeUntilDestroyed(this.destroyRef))
       );
 
       if (!response.data) {

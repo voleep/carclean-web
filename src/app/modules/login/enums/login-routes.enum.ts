@@ -3,5 +3,6 @@ export enum LoginRoutesEnum {
   criarContra = '/entrar/novo',
   esqueceuSenha = '/entrar/recuperar-senha',
   vefificarCodigo = '/entrar/recuperar-senha/verificar',
-  alterarSenha = '/entrar/recuperar-senha/alterar',
+  resetarSenha = '/entrar/recuperar-senha/resetar',
+  allDone = '/entrar/recuperar-senha/concluida',
 }

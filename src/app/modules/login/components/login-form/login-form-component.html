@@ -21,12 +21,16 @@
     <mat-form-field>
       <mat-label>Senha</mat-label>
       <input
+        id="password"
         [formControl]="loginForm.controls.password"
         matInput
         type="password"
       />
     </mat-form-field>
-    <a class="forgot-password" routerLink="/entrar/recuperar-senha"
+    <a
+      class="forgot-password"
+      routerLink="/entrar/recuperar-senha"
+      [state]="{email: loginForm.controls.email.value}"
       >Esqueceu a senha?</a
     >
   </form>

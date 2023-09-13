@@ -4,6 +4,8 @@ import { LoginComponent } from './components/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { LoginFormComponent } from './components/login-form/login-form-component';
 import { VerifyRecoveryCodeComponent } from './components/verify-recovery-code/verify-recovery-code.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { AllDoneComponent } from './components/all-done/all-done.component';
 
 const routes: Route[] = [
   {
@@ -24,6 +26,16 @@ const routes: Route[] = [
         path: 'recuperar-senha/verificar',
         component: VerifyRecoveryCodeComponent,
         data: { animation: 'RecoveryCode' },
+      },
+      {
+        path: 'recuperar-senha/resetar',
+        component: ResetPasswordComponent,
+        data: { animation: 'ResetPassword' },
+      },
+      {
+        path: 'recuperar-senha/concluida',
+        component: AllDoneComponent,
+        data: { animation: 'AllDone' },
       },
     ],
   },

@@ -7,7 +7,9 @@ export class MessengerService {
 
   showMessage(message: string | any): void {
     if (typeof message === 'string') {
-      this.snackbar.open(message);
+      this.snackbar.open(message, 'OK', {
+        duration: 3000,
+      });
       return;
     }
 

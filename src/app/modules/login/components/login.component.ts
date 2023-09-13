@@ -13,6 +13,9 @@ import { slideTo } from '@carclean/shared/animations/slide-to.animation';
       transition('ForgotPassword => RecoveryCode', slideTo('right')),
       transition('RecoveryCode => ForgotPassword', slideTo('left')),
       transition('RecoveryCode => LoginForm', slideTo('left')),
+      transition('RecoveryCode => ResetPassword', slideTo('right')),
+      transition('ResetPassword => LoginForm', slideTo('left')),
+      transition('ResetPassword => AllDone', slideTo('right')),
     ]),
   ],
 })

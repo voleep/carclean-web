@@ -14,6 +14,9 @@ import { BloggerStoriesComponent } from '@carclean/shared/components/blogger-sto
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { MatIconModule } from '@angular/material/icon';
 import { VerifyRecoveryCodeComponent } from './components/verify-recovery-code/verify-recovery-code.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { A11yModule } from '@angular/cdk/a11y';
+import { AllDoneComponent } from './components/all-done/all-done.component';
 
 @NgModule({
   imports: [
@@ -27,12 +30,15 @@ import { VerifyRecoveryCodeComponent } from './components/verify-recovery-code/v
     MatSnackBarModule,
     MatIconModule,
     BloggerStoriesComponent,
+    A11yModule,
   ],
   declarations: [
     LoginComponent,
     LoginFormComponent,
     ForgotPasswordComponent,
     VerifyRecoveryCodeComponent,
+    ResetPasswordComponent,
+    AllDoneComponent,
   ],
   providers: [LoginService],
 })

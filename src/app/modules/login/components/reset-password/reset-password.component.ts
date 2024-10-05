@@ -1,3 +1,4 @@
+import { Location, NgIf, NgStyle } from '@angular/common';
 import {
   Component,
   DestroyRef,
@@ -6,27 +7,46 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   AbstractControl,
   FormControl,
   FormGroup,
+  ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
-import { LoginService } from '../../login.service';
+import { MatButton } from '@angular/material/button';
+import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { Router, RouterLink } from '@angular/router';
 import { OAuthService } from '@carclean/core/oauth/oauth.service';
+import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
 import { firstValueFrom } from 'rxjs';
-import { Location } from '@angular/common';
-import { Router } from '@angular/router';
 import { LoginRoutesEnum } from '../../enums/login-routes.enum';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { LoginService } from '../../login.service';
 
 @Component({
+  standalone: true,
   selector: 'app-reset-password',
   templateUrl: 'reset-password.component.html',
   styleUrls: ['reset-password.component.scss'],
+  imports: [
+    NgIf,
+    NgStyle,
+    MatIcon,
+    MatFormField,
+    MatLabel,
+    MatError,
+    MatInput,
+    ReactiveFormsModule,
+    MatButton,
+    RouterLink,
+    MatProgressSpinner,
+  ],
 })
-export class ResetPasswordComponent implements OnInit {
+export default class ResetPasswordComponent implements OnInit {
   isLoading = signal(false);
 
   passwordForm = new FormGroup({

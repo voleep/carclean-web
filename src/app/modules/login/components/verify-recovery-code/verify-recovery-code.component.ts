@@ -1,3 +1,5 @@
+import { CdkTrapFocus } from '@angular/cdk/a11y';
+import { Location, NgFor, NgIf, NgStyle } from '@angular/common';
 import {
   Component,
   DestroyRef,
@@ -9,22 +11,42 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginRoutesEnum } from '../../enums/login-routes.enum';
-import { Location } from '@angular/common';
-import { FormArray, FormControl, Validators } from '@angular/forms';
-import { MatInput } from '@angular/material/input';
-import { firstValueFrom } from 'rxjs';
-import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
-import { LoginService } from '../../login.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import {
+  FormArray,
+  FormControl,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatFormField, MatInput } from '@angular/material/input';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { Router } from '@angular/router';
+import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
+import { firstValueFrom } from 'rxjs';
+import { LoginRoutesEnum } from '../../enums/login-routes.enum';
+import { LoginService } from '../../login.service';
 
 @Component({
+  standalone: true,
   selector: 'app-verify-recovery-code',
   templateUrl: 'verify-recovery-code.component.html',
   styleUrls: ['verify-recovery-code.component.scss'],
+  imports: [
+    NgIf,
+    NgStyle,
+    NgFor,
+    MatIcon,
+    MatInput,
+    MatFormField,
+    ReactiveFormsModule,
+    MatButton,
+    MatProgressSpinner,
+    CdkTrapFocus,
+  ],
 })
-export class VerifyRecoveryCodeComponent implements OnInit {
+export default class VerifyRecoveryCodeComponent implements OnInit {
   isLoading = signal(false);
 
   email = signal('');

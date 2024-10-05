@@ -1,11 +1,11 @@
-import { Component, HostListener, computed, signal } from '@angular/core';
-import { Menu } from './menu.type';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
+import { Component, HostListener, computed, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { animate, style, transition, trigger } from '@angular/animations';
 import { Router, RouterModule } from '@angular/router';
 import { NavigationRailComponent } from '../navigation-rail/navigation-rail.component';
+import { Menu } from './menu.type';
 
 @Component({
   standalone: true,
@@ -40,6 +40,7 @@ export class CarCleanMenuComponent {
     title: 'Início',
     path: '/app',
   };
+
   readonly menuSchema: Menu[] = [
     {
       title: 'Cadastro',

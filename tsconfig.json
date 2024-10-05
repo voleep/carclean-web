@@ -24,9 +24,6 @@
       "dom"
     ],
     "paths": {
-      "@angular/*": [
-        "./node_modules/@angular/*"
-      ],
       "@carclean/*": [
         "src/app/*"
       ],

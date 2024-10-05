@@ -1,9 +1,11 @@
 import { transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
-import { ChildrenOutletContexts } from '@angular/router';
+import { ChildrenOutletContexts, RouterOutlet } from '@angular/router';
 import { slideTo } from '@carclean/shared/animations/slide-to.animation';
+import { BloggerStoriesComponent } from '@carclean/shared/components/blogger-stories/blogger-stories.component';
 
 @Component({
+  standalone: true,
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.scss'],
   animations: [
@@ -18,8 +20,9 @@ import { slideTo } from '@carclean/shared/animations/slide-to.animation';
       transition('ResetPassword => AllDone', slideTo('right')),
     ]),
   ],
+  imports: [RouterOutlet, BloggerStoriesComponent],
 })
-export class LoginComponent {
+export default class LoginComponent {
   constructor(private contexts: ChildrenOutletContexts) {}
 
   getRouteAnimationData() {

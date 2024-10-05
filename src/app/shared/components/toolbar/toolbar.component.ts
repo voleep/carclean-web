@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { OAuthService } from '@carclean/core/oauth/oauth.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import { OAuthService } from '@carclean/core/oauth/oauth.service';
 
 @Component({
   standalone: true,

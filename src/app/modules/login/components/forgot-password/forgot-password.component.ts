@@ -1,19 +1,38 @@
+import { Location, NgIf, NgStyle } from '@angular/common';
 import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
-import { LoginService } from '../../login.service';
-import { FormControl, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { firstValueFrom } from 'rxjs';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { Router, RouterLink } from '@angular/router';
 import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
-import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 import { LoginRoutesEnum } from '../../enums/login-routes.enum';
-import { Location } from '@angular/common';
+import { LoginService } from '../../login.service';
 
 @Component({
+  standalone: true,
   selector: 'ap-forgot-password',
   templateUrl: 'forgot-password.component.html',
   styleUrls: ['forgot-password.component.scss'],
+  imports: [
+    NgStyle,
+    NgIf,
+    MatIcon,
+    MatFormField,
+    MatInput,
+    MatLabel,
+    ReactiveFormsModule,
+    MatButton,
+    MatProgressSpinner,
+    RouterLink,
+  ],
+  providers: [LoginService],
 })
-export class ForgotPasswordComponent implements OnInit {
+export default class ForgotPasswordComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
 
   isLoading = signal(false);

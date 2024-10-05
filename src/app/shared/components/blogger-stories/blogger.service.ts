@@ -9,7 +9,7 @@ type BloggerResponse = {
 
 @Injectable()
 export class BloggerService {
-  private readonly CARCLEAN_APP_KEY = 'AIzaSyDDj9Z6LOuG4xb0IVPvabttp3jrx5zU-3M';
+  private readonly CARCLEAN_APP_KEY = 'AIzaSyA9idi3oQJFfqgDv0MGiiQhYklR0J1ic4E';
 
   private readonly endpoint = `https://www.googleapis.com/blogger/v3/blogs/3364500233745961277/posts?key=${this.CARCLEAN_APP_KEY}&fields=items(title, url, content)&maxResults=6`;
 

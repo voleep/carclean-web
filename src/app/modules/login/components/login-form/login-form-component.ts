@@ -1,18 +1,41 @@
+import { NgIf, NgStyle } from '@angular/common';
 import { Component, DestroyRef, inject, signal } from '@angular/core';
-import { LoginService } from '../../login.service';
-import { OAuthService } from '@carclean/core/oauth/oauth.service';
-import { firstValueFrom } from 'rxjs';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatButton } from '@angular/material/button';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { Router, RouterLink } from '@angular/router';
+import { OAuthService } from '@carclean/core/oauth/oauth.service';
+import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
+import { firstValueFrom } from 'rxjs';
+import { LoginService } from '../../login.service';
 
 @Component({
+  standalone: true,
   selector: 'app-login-form',
   templateUrl: 'login-form-component.html',
   styleUrls: ['login-form-component.scss'],
+  imports: [
+    NgIf,
+    NgStyle,
+    MatFormField,
+    MatInput,
+    MatLabel,
+    ReactiveFormsModule,
+    RouterLink,
+    MatButton,
+    MatProgressSpinner,
+  ],
+  providers: [LoginService],
 })
-export class LoginFormComponent {
+export default class LoginFormComponent {
   isLoading = signal(false);
 
   loginForm = new FormGroup({

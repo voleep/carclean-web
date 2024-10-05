@@ -4,8 +4,8 @@ import { AppConfig } from '@carclean/app-config';
 import { OAuthModel } from '@carclean/core/oauth/models/oauth.model';
 import { RequestResponse } from '@carclean/shared/models/rest/request-response.model';
 import { Observable } from 'rxjs';
-import { VerifyRecoveryCodeRequestModel } from './models/verify-recovery-code-request.model';
 import { RecoveryPasswordRequestModel } from './models/recovery-password-request.model';
+import { VerifyRecoveryCodeRequestModel } from './models/verify-recovery-code-request.model';
 
 @Injectable()
 export class LoginService {

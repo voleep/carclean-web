@@ -12,10 +12,12 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { Router, RouterLink } from '@angular/router';
+import { OAuthModel } from '@carclean/core/oauth/models/oauth.model';
 import { OAuthService } from '@carclean/core/oauth/oauth.service';
 import { MessengerService } from '@carclean/shared/services/messenger/messenger.service';
 import { firstValueFrom } from 'rxjs';
 import { LoginService } from '../../login.service';
+import { LoginRequest } from '../../models/login-request';
 
 @Component({
   standalone: true,
@@ -68,20 +70,24 @@ export default class LoginFormComponent {
 
     this.isLoading.set(true);
     try {
+      const data: LoginRequest = {
+        email: this.loginForm.controls.email.value,
+        password: this.loginForm.controls.password.value,
+      };
+
+      const request = this.loginService.signIn(data);
       const response = await firstValueFrom(
-        this.loginService
-          .signIn(
-            this.loginForm.controls.email.value,
-            this.loginForm.controls.password.value
-          )
-          .pipe(takeUntilDestroyed(this.destroyRef))
+        request.pipe(takeUntilDestroyed(this.destroyRef))
       );
 
-      if (!response.data) {
-        throw Error('Ocorreu um erro desconhecido');
-      }
+      const model: OAuthModel = {
+        userId: response.data!.user.id,
+        companyId: response.data!.company?.id,
+        token: response.data!.token,
+        refreshToken: response.data!.refreshToken,
+      };
 
-      this.oAuthService.setOAuthData(response.data);
+      this.oAuthService.setOAuthData(model);
       this.router.navigateByUrl('/app');
     } catch (error) {
       this.messenger.showMessage(error);

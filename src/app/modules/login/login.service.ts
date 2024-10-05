@@ -4,25 +4,21 @@ import { AppConfig } from '@carclean/app-config';
 import { OAuthModel } from '@carclean/core/oauth/models/oauth.model';
 import { RequestResponse } from '@carclean/shared/models/rest/request-response.model';
 import { Observable } from 'rxjs';
+import { LoginRequest } from './models/login-request';
+import { LoginResponse } from './models/login-response';
 import { RecoveryPasswordRequestModel } from './models/recovery-password-request.model';
 import { VerifyRecoveryCodeRequestModel } from './models/verify-recovery-code-request.model';
 
 @Injectable()
 export class LoginService {
-  private readonly endpoint = `${AppConfig.OAUTH_API_URL}/user`;
+  private readonly endpoint = `${AppConfig.OAUTH_API_URL}`;
 
   constructor(private http: HttpClient) {}
 
-  signIn(
-    email: string,
-    password: string
-  ): Observable<RequestResponse<OAuthModel>> {
-    return this.http.post<RequestResponse<OAuthModel>>(
+  signIn(request: LoginRequest): Observable<RequestResponse<LoginResponse>> {
+    return this.http.post<RequestResponse<LoginResponse>>(
       `${this.endpoint}/login`,
-      {
-        dsEmail: email,
-        dsPassword: password,
-      }
+      request
     );
   }
 

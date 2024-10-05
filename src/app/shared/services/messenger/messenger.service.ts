@@ -12,8 +12,7 @@ export class MessengerService {
       });
       return;
     }
-
-    this.snackbar.open(message.error.errorMessage ?? message, 'OK', {
+    this.snackbar.open(message?.error?.message ?? 'Ocorreu um erro', 'OK', {
       duration: 3000,
     });
   }

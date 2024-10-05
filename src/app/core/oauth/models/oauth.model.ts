@@ -1,6 +1,6 @@
 export interface OAuthModel {
   userId: string;
-  businessId?: string;
+  companyId?: string;
   token: string;
   refreshToken: string;
 }

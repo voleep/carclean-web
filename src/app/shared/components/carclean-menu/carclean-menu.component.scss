@@ -1,7 +1,7 @@
 @use "@angular/material" as mat;
 @import "../../styles/themes/carclean-theme";
 
-$menu-color: mat.get-color-from-palette($voleep-carclean-web-primary, A50);
+$menu-color: mat.m2-get-color-from-palette($voleep-carclean-web-primary, A50);
 
 :host {
   position: relative;

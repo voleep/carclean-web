@@ -80,15 +80,15 @@ $carclean-light-blue: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$voleep-carclean-web-primary: mat.define-palette($carclean-light-blue);
-$voleep-carclean-web-accent: mat.define-palette($carclean-light-green);
+$voleep-carclean-web-primary: mat.m2-define-palette($carclean-light-blue);
+$voleep-carclean-web-accent: mat.m2-define-palette($carclean-light-green);
 
 // The warn palette is optional (defaults to red).
-$voleep-carclean-web-warn: mat.define-palette(mat.$red-palette);
+$voleep-carclean-web-warn: mat.m2-define-palette(mat.$m2-red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$voleep-carclean-web-theme: mat.define-light-theme(
+$voleep-carclean-web-theme: mat.m2-define-light-theme(
   (
     color: (
       primary: $voleep-carclean-web-primary,
@@ -103,9 +103,9 @@ $voleep-carclean-web-theme: mat.define-light-theme(
 // that you are using.
 @include mat.all-component-themes($voleep-carclean-web-theme);
 
-$carclean-app-inverse-theme: mat.define-light-theme(
-  mat.define-palette($carclean-light-green),
-  mat.define-palette($carclean-light-blue)
+$carclean-app-inverse-theme: mat.m2-define-light-theme(
+  mat.m2-define-palette($carclean-light-green),
+  mat.m2-define-palette($carclean-light-blue)
 );
 @include mat.form-field-theme($carclean-app-inverse-theme);
 @include mat.stepper-theme($carclean-app-inverse-theme);
